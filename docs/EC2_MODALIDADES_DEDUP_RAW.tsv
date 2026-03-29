@@ -1,0 +1,53 @@
+MODALITY	RAW_TOTAL	DEDUP_TOTAL	REDUNDANT	REPOS
+Interproximais/Bitewing	5906	3658	2248	2
+Outros/Ambiguos	505979	228858	277121	22
+Panoramicas	162897	84077	78820	10
+Periapicais	185268	185268	0	3
+Teleradiografias	20734	20734	0	1
+Tomografia/CBCT	8419	1685	6734	6
+
+REPO	MODALITY	RAW_JPG	IS_DERIVATIVE_NAME
+anno_00	Outros/Ambiguos	113864	0
+procedures_pre	Outros/Ambiguos	100670	0
+periapicais_processed_anonymized	Periapicais	79266	1
+periapicais_processed	Periapicais	73411	1
+denticao	Outros/Ambiguos	46755	0
+denticao_imgs.bak	Outros/Ambiguos	46755	1
+desdentados.bak	Outros/Ambiguos	39480	1
+desdentados	Outros/Ambiguos	33317	0
+desndentadis_imgs.bak	Outros/Ambiguos	33317	1
+periapicais	Periapicais	32591	0
+panoramicas	Panoramicas	32518	0
+panoramicas_anonymized	Panoramicas	32518	1
+panoramics_anonymized	Panoramicas	32518	1
+teles	Teleradiografias	20734	0
+anomalias_00	Outros/Ambiguos	18977	0
+longoeixo	Outros/Ambiguos	16422	0
+panoramicas_anonymized.delete	Panoramicas	16422	1
+panoramics_anonymized.delete	Panoramicas	16422	1
+longoeixo.missmatch	Outros/Ambiguos	10645	1
+panoramics_mixed	Panoramicas	10581	0
+panoramics_mixed_processed	Panoramicas	10581	1
+panoramics_mixed_processed_anonymized	Panoramicas	10581	1
+procedimentos	Outros/Ambiguos	9889	0
+mista	Outros/Ambiguos	7654	0
+mista_imgs.bak	Outros/Ambiguos	6163	1
+celto_curves	Outros/Ambiguos	5691	0
+procedures_pre_test	Outros/Ambiguos	4832	0
+procedures_pre_ver0	Outros/Ambiguos	4832	0
+tomo_views	Tomografia/CBCT	4814	0
+interproximais	Interproximais/Bitewing	3658	0
+celto_curves.bak	Outros/Ambiguos	3418	1
+interproximais.bak	Interproximais/Bitewing	2248	1
+metais	Outros/Ambiguos	2000	0
+tomos	Tomografia/CBCT	1658	0
+hyperpans	Panoramicas	615	0
+celto_points	Outros/Ambiguos	582	0
+tomoscoronal	Tomografia/CBCT	555	0
+anomalias-500	Outros/Ambiguos	496	0
+tomobox	Tomografia/CBCT	495	0
+tomosuperior.old	Tomografia/CBCT	458	1
+tomosuperior	Tomografia/CBCT	439	0
+longoeixo_sample	Outros/Ambiguos	180	1
+panoramicas_sample	Panoramicas	141	1
+fabio-teeth-segmentation-original-dataset	Outros/Ambiguos	40	0

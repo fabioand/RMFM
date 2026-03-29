@@ -1,0 +1,38 @@
+repo,inferred_modality,json_count,img_count,stem_match,match_ratio,inferred_annotation_type,json_dir_hints,img_dir_hints,json_ref_hints
+periapicais_processed_anonymized,Periapical,156805,79266,153449,0.9786,predicoes/model outputs,"metadata:41596,prediction_longaxis:41596,data_classification:32487",imgs:79266,keys:names:119
+periapicais_processed,Periapical,150948,73411,147593,0.9778,predicoes/model outputs,"metadata:41596,prediction_longaxis:41596,data_classification:32487",imgs:73411,keys:names:119
+panoramicas_anonymized,Panoramica,130201,32518,129869,0.9975,predicoes/model outputs,"metadata:17593,prediction_panorogram:16422,prediction_segmentation:16422",imgs:32518,no_explicit_ref_found_sample
+panoramicas,Panoramica,126742,32518,126410,0.9974,predicoes/model outputs,"metadata:17593,prediction_panorogram:16422,prediction_segmentation:16422",imgs:32518,no_explicit_ref_found_sample
+anno_00,Mista/Indefinida,113865,113864,113864,1.0000,1:1 com imagem (json por imagem),"data:113864,.:1",imgs:113864,no_explicit_ref_found_sample
+panoramics_anonymized,Panoramica,98027,32518,97696,0.9966,predicoes/model outputs,"metadata:17593,prediction_segmentation:16422,2022-05-26_data_longoeixo:16422",imgs:32518,no_explicit_ref_found_sample
+panoramicas_anonymized.delete,Panoramica,60943,16422,60548,0.9935,predicoes/model outputs,"prediction_segmentation:16422,2022-05-26_data_longoeixo:16422,data_longoeixo:16422",imgs:16422,keys:imgorigin:2
+panoramics_anonymized.delete,Panoramica,59472,16422,59077,0.9934,predicoes/model outputs,"prediction_segmentation:16422,2022-05-26_data_longoeixo:16422,data_longoeixo:16422",imgs:16422,keys:imgorigin:2
+longoeixo,Panoramica (eixo longo),51084,16422,51083,1.0000,anotacoes de eixo longo,"data_longoeixo:16422,data_longoeixo_pre_correction:15165,data_longoeixo.SP-correction-bak:15165",imgs:16422,no_explicit_ref_found_sample
+denticao,Mista/Indefinida,46756,46755,46755,1.0000,1:1 com imagem (json por imagem),"data:46755,.:1",imgs:46755,no_explicit_ref_found_sample
+periapicais,Periapical,42962,32591,42960,1.0000,classificacao por imagem,"data_classification:32591,data_longoeixo:10369,.:2",imgs:32591,"refs:119_27-28_3iradiologia.com.br_131658_8317.jpg:1,262_18-17_analiseradiologia.com.br_342337_17636.jpg:1,(66_5)_23_examesodontoimagemradio.com.br_337952_27327.jpg:1 | keys:fname:35"
+desdentados,Mista/Indefinida,33319,33317,33317,0.9999,1:1 com imagem (json por imagem),"data:33317,.:2",imgs:33317,no_explicit_ref_found_sample
+panoramics_mixed,Panoramica,21163,10581,21162,1.0000,metadados + anotacoes,"metadata:10581,data_longoeixo:10581,.:1",imgs:10581,no_explicit_ref_found_sample
+panoramics_mixed_processed,Panoramica,21163,10581,21162,1.0000,metadados + anotacoes,"data_longaxis:10581,metadata:10581,.:1",imgs:10581,no_explicit_ref_found_sample
+panoramics_mixed_processed_anonymized,Panoramica,21163,10581,21162,1.0000,metadados + anotacoes,"data_longaxis:10581,metadata:10581,.:1",imgs:10581,no_explicit_ref_found_sample
+teles,Teleradiografia,20735,20734,20734,1.0000,1:1 com imagem (json por imagem),"data:20734,.:1",imgs:20734,"refs:6016__r-4470-10001020.jpg:1,55342__r-85134-71121.jpg:1,59044__r-202495-94852.jpg:1 | keys:imager:119"
+anomalias_00,Mista/Indefinida,18978,18977,18977,0.9999,1:1 com imagem (json por imagem),"data:18977,.:1",imgs:18977,no_explicit_ref_found_sample
+longoeixo.missmatch,Panoramica (eixo longo),10601,10645,10600,0.9999,1:1 com imagem (json por imagem),"data:10100,test_data:500,.:1","imgs:10145,test_imgs:500",no_explicit_ref_found_sample
+procedimentos,Mista/Indefinida,9890,9889,9889,0.9999,1:1 com imagem (json por imagem),"data:9889,.:1",imgs:9889,no_explicit_ref_found_sample
+mista,Mista/Indefinida,7655,7654,7654,0.9999,1:1 com imagem (json por imagem),"data:6163,test_data:1491,.:1","imgs:6163,test_imgs:1491",no_explicit_ref_found_sample
+tomo_views,Tomografia/CBCT,4815,4814,4814,0.9998,anotacoes de tomo (views),"data_axial:1607,data_coronal:1604,data_sagital:1603","imgs_axial:1607,imgs_coronal:1604,imgs_sagital:1603",no_explicit_ref_found_sample
+interproximais,Interproximal/Bitewing,3659,3658,3658,0.9997,1:1 com imagem (json por imagem),"data:3658,.:1",imgs:3658,no_explicit_ref_found_sample
+interproximais.bak,Interproximal/Bitewing,2249,2248,2248,0.9996,1:1 com imagem (json por imagem),"data:2248,.:1",imgs:2248,no_explicit_ref_found_sample
+metais,Mista/Indefinida,2001,2000,2000,0.9995,1:1 com imagem (json por imagem),"data:2000,.:1",imgs:2000,no_explicit_ref_found_sample
+tomos,Tomografia/CBCT,1659,1658,1658,0.9994,1:1 com imagem (json por imagem),"data:1658,.:1",imgs:1658,no_explicit_ref_found_sample
+hyperpans,Panoramica,617,615,615,0.9968,pontos/landmarks,"up:332,down:280,down/.ipynb_checkpoints:3","up:332,down:280,down/.ipynb_checkpoints:3",no_explicit_ref_found_sample
+celto_points,Mista/Indefinida,583,582,582,0.9983,pontos/landmarks,"points:582,.:1",imgs:582,no_explicit_ref_found_sample
+tomoscoronal,Tomografia/CBCT,556,555,555,0.9982,1:1 com imagem (json por imagem),"data:555,.:1",imgs:555,no_explicit_ref_found_sample
+anomalias-500,Mista/Indefinida,496,496,496,1.0000,1:1 com imagem (json por imagem),data:496,imgs:496,no_explicit_ref_found_sample
+tomobox,Tomografia/CBCT,496,495,495,0.9980,1:1 com imagem (json por imagem),"data:495,.:1",imgs:495,no_explicit_ref_found_sample
+tomosuperior.old,Tomografia/CBCT,459,458,458,0.9978,1:1 com imagem (json por imagem),"data:458,.:1",imgs:458,no_explicit_ref_found_sample
+tomosuperior,Tomografia/CBCT,440,439,439,0.9977,1:1 com imagem (json por imagem),"data:439,.:1",imgs:439,no_explicit_ref_found_sample
+panoramicas_sample,Panoramica,307,141,301,0.9805,anotacoes de eixo longo,"data_longoeixo:141,data_procedimentos_pan:51,data_procedimentos_crop:44",imgs:141,no_explicit_ref_found_sample
+longoeixo_sample,Panoramica (eixo longo),198,180,197,0.9949,anotacoes de eixo longo,"data_longoeixo:180,data_procedimentos:17,.:1",imgs:180,no_explicit_ref_found_sample
+fabio-teeth-segmentation-original-dataset,Mista/Indefinida,40,40,40,1.0000,1:1 com imagem (json por imagem),.:40,.:40,keys:path:161
+celto_curves,Mista/Indefinida,1,5691,0,0.0000,misto/indefinido,.:1,"imgs:582,masks/celto.radiomemory.com.br_41290_5863:9,masks/celto.radiomemory.com.br_20727_2936:9",no_explicit_ref_found_sample
+celto_curves.bak,Mista/Indefinida,1,3418,0,0.0000,misto/indefinido,.:1,"imgs:582,masks/celto.radiomemory.com.br_41290_5863:5,masks/celto.radiomemory.com.br_20727_2936:5",no_explicit_ref_found_sample

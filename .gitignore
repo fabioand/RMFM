@@ -1,0 +1,58 @@
+# Secrets / env
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Local datasets and generated local data
+Downloads/
+out/
+fotos/
+
+# Experiment artifacts (large)
+**/outputs/
+**/features_cache/
+**/embedding_cache/
+**/attention_cache/
+**/tb/
+**/runs/
+**/checkpoints/
+
+# Large model / tensor artifacts
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.hdf5
+*.safetensors
+*.bin
+
+# Image datasets and heavy media artifacts
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
+*.webp
+
+# Optional archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
