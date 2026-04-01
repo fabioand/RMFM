@@ -4,6 +4,15 @@ Baseline supervisionado para periapicais usando:
 - encoder `facebook/dinov2-small` congelado
 - cabeça classificadora treinável (LayerNorm + Dropout + Linear)
 
+## Resultados Principais
+- Baseline (`run_cached_head_256_v2_60ep`): `test_accuracy=0.6091`, `test_macro_f1=0.5693`
+- Com `flip mirror` (`run_cached_head_256_flipmirror_v1`): `test_accuracy=0.7462`, `test_macro_f1=0.7396`
+- Ganho do `flip mirror`: `+0.1371` em accuracy e `+0.1703` em macro F1
+- Referência RM API (mesmo conjunto 1312): `accuracy=0.9505`
+
+Consolidado:
+- `/Users/fabioandrade/RMFM/docs/RESULTADOS_EXPERIMENTOS_ATUAIS.md`
+
 ## Estrutura
 - `scripts/train_frozen_head.py`: entrypoint de treino
 - `src/dino_periapical_cls/data.py`: leitura de dados e split estratificado
@@ -98,3 +107,9 @@ Saídas principais:
 - `summary_predict_unlabeled.json` (inclui latência média/mediana/p95)
 - `predictions_rows.json` (1 linha por imagem, com `inference_ms`)
 - `grouped_by_predicted_class.html` (cards por classe com tempo no card)
+
+## Inspeção Visual Recomendada
+- Teste agrupado por classe predita:
+  - `/Users/fabioandrade/RMFM/experiments/periapical_dino_classifier/outputs/run_cached_head_256_flipmirror_v1/eval_test_grouped/grouped_by_predicted_class.html`
+- Sem GT (amostra externa):
+  - `/Users/fabioandrade/RMFM/experiments/periapical_dino_classifier/outputs/run_cached_head_256_flipmirror_v1/predict_unlabeled_600/grouped_by_predicted_class.html`

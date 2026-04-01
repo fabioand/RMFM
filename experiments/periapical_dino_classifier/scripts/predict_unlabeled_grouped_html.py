@@ -81,11 +81,11 @@ def build_grouped_html(title: str, rows: list[dict[str, Any]], idx_to_label: dic
         cls_name = idx_to_label[pred_idx]
         cards = []
         for item in sorted(items, key=lambda x: x["confidence"], reverse=True):
-            img_uri = Path(item["image"]).resolve().as_uri()
+            img_src = html.escape(str(item.get("html_image_src", "")))
             cards.append(
                 f"""
                 <article class="card">
-                  <div class="thumb"><img src="{img_uri}" alt="{html.escape(item['stem'])}" loading="lazy" /></div>
+                  <div class="thumb"><img src="{img_src}" alt="{html.escape(item['stem'])}" loading="lazy" /></div>
                   <div class="body">
                     <h3 title="{html.escape(item['image'])}">{html.escape(item['stem'])}</h3>
                     <p><b>Pred:</b> {html.escape(item['pred_label'])}</p>
@@ -200,6 +200,8 @@ def main() -> None:
 
     output_dir = Path(args.output_dir) if args.output_dir else (run_dir / f"predict_unlabeled_{int(args.num_images)}")
     output_dir.mkdir(parents=True, exist_ok=True)
+    images_out_dir = output_dir / "images"
+    images_out_dir.mkdir(parents=True, exist_ok=True)
 
     cache_meta = _load_json(cache_meta_path)
     model_id = str(cache_meta["model_id"])
@@ -255,7 +257,7 @@ def main() -> None:
 
     t_all0 = time.perf_counter()
     with torch.no_grad():
-        for p in selected:
+        for i, p in enumerate(selected):
             t0 = time.perf_counter()
             img = Image.open(p).convert("RGB")
 
@@ -290,9 +292,17 @@ def main() -> None:
             tot_ms = (t1 - t0) * 1000.0
 
             pred_idx = int(pred.item())
+            # Relative preview path for HTML (works with http.server and remote mounts).
+            link_name = f"{i:05d}_{p.name}"
+            link_path = images_out_dir / link_name
+            if link_path.exists() or link_path.is_symlink():
+                link_path.unlink()
+            link_path.symlink_to(p.resolve())
+
             rows.append(
                 {
                     "image": str(p.resolve()),
+                    "html_image_src": str(Path("images") / link_name),
                     "stem": p.stem,
                     "pred_idx": pred_idx,
                     "pred_label": idx_to_label[pred_idx],
