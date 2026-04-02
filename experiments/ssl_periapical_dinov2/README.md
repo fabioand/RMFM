@@ -66,7 +66,10 @@ cd /Users/fabioandrade/RMFM
 python3 experiments/ssl_periapical_dinov2/scripts/run_downstream_periapical_eval.py \
   --backbone-dir experiments/ssl_periapical_dinov2/outputs/smoke_mac_peri3000_512/exported_backbone \
   --images-dir /Users/fabioandrade/RMFM/Downloads/imgs_class \
-  --labels-dir /Users/fabioandrade/RMFM/Downloads/json_class \
+  --labels-dir /Users/fabioandrade/RMFM/Downloads/periapical_classificacao \
   --output-dir experiments/ssl_periapical_dinov2/outputs/smoke_mac_peri3000_512/downstream_eval
 ```
 
+Observacao importante:
+- para fluxo oficial Mac + EC2 (export teacher/student + E1/E2 com paths canonicos), usar:
+  - [docs/RUNBOOK_E1_E2_PERIAPICAL_MAC_EC2.md](/Users/fabioandrade/RMFM/docs/RUNBOOK_E1_E2_PERIAPICAL_MAC_EC2.md)

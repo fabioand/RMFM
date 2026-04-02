@@ -73,7 +73,44 @@ python3 experiments/ssl_periapical_dinov2/scripts/train_ssl_dinov2.py \
 Pasta esperada:
 - `/dataset/RMFM/experiments/ssl_periapical_dinov2/outputs/ec2_full_ssl_periapical_v2_stable_bs20`
 
-## 5) Referências
+## 5) Gate downstream já validado (epoch_020 teacher)
+
+Resultado no dataset oficial de comparação (`1312` imagens, `14` classes):
+
+- E1 (reuso da cabeça antiga):
+  - `test_accuracy=0.4619`
+  - `test_macro_f1=0.3797`
+- E2 (retreino MLP, 60 épocas):
+  - `test_accuracy=0.8426`
+  - `test_macro_f1=0.8404`
+  - `best_val_macro_f1=0.8958`
+
+Comparação contra baseline histórico (`run_cached_head_256_flipmirror_v1`):
+- baseline `test_macro_f1=0.7396`
+- v2 epoch_020 teacher E2 `test_macro_f1=0.8404` (delta `+0.1008`)
+
+Teste adicional (E2 com KNN):
+- melhor `k=5`
+- `test_accuracy=0.5076`
+- `test_macro_f1=0.4842`
+- conclusão: para esse cenário, MLP continua superior ao KNN.
+
+## 6) Diagnóstico de embedding (simetria + variância): v1 vs v2
+
+Diagnóstico reproduzido no mesmo espírito do v1:
+- v1 `epoch_015` (student/teacher) confirma degeneração severa:
+  - `PC1 ~0.90-0.93`,
+  - `Top5 ~0.999`,
+  - `effective_rank ~1.3-1.5`.
+- v2 `epoch_020 teacher` mostra recuperação geométrica:
+  - `PC1=0.1422` (próximo ao baseline `0.1262`),
+  - `Top5=0.4499`,
+  - `effective_rank=39.0`.
+
+Relatório completo:
+- [DIAGNOSTICO_EMBEDDINGS_V1_V2_SIMETRIA_VARIANCIA.md](/Users/fabioandrade/RMFM/docs/DIAGNOSTICO_EMBEDDINGS_V1_V2_SIMETRIA_VARIANCIA.md)
+
+## 7) Referências
 
 - [PLANO_SSL_PERIAPICAL_V2_ESTABILIZACAO.md](/Users/fabioandrade/RMFM/docs/PLANO_SSL_PERIAPICAL_V2_ESTABILIZACAO.md)
 - [PLANO_EXECUCAO_SSL_PERIAPICAL_V2_CORRIGIDO.md](/Users/fabioandrade/RMFM/docs/PLANO_EXECUCAO_SSL_PERIAPICAL_V2_CORRIGIDO.md)

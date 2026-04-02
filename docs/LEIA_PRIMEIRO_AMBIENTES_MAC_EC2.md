@@ -133,3 +133,6 @@ Operação segura:
 
 Quando iniciar uma nova thread/agente no projeto, pedir para ler primeiro:
 - `docs/LEIA_PRIMEIRO_AMBIENTES_MAC_EC2.md`
+
+Para execucao de export + E1/E2 periapical (comandos e paths oficiais):
+- [RUNBOOK_E1_E2_PERIAPICAL_MAC_EC2.md](/Users/fabioandrade/RMFM/docs/RUNBOOK_E1_E2_PERIAPICAL_MAC_EC2.md)
