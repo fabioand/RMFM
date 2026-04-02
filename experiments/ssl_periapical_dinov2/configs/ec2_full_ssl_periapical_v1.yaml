@@ -1,0 +1,65 @@
+run:
+  name: "ec2_full_ssl_periapical_v1"
+  output_dir: "/dataset/RMFM/experiments/ssl_periapical_dinov2/outputs"
+
+model:
+  model_id: "facebook/dinov2-small"
+  offline: true
+  hf_token: ""
+  hf_token_env: "HF_TOKEN"
+  out_dim: 32768
+  head_hidden_dim: 2048
+  head_bottleneck_dim: 256
+
+dataset:
+  images_dir: ""
+  list_txt: "/dataset/RMFM/experiments/ssl_periapical_v1/ssl_periapical_v1_keep.txt"
+  list_json: ""
+  recursive: false
+  max_images: 0
+
+multicrop:
+  global_crops: 2
+  local_crops: 6
+  global_size: 384
+  local_size: 192
+  global_scale: [0.15, 1.0]
+  local_scale: [0.05, 0.15]
+  ratio: [0.90, 1.10]
+
+augmentation:
+  rotation_deg: 5.0
+  brightness_delta: 0.06
+  contrast_delta: 0.08
+  blur_prob: 0.10
+  noise_prob: 0.10
+  noise_std: 0.01
+
+loss:
+  student_temp: 0.10
+  center_momentum: 0.90
+  teacher_temp_warmup: 0.04
+  teacher_temp: 0.07
+  teacher_temp_warmup_epochs: 30
+
+training:
+  seed: 42
+  cpu: false
+  amp: true
+  no_tensorboard: false
+  epochs: 50
+  batch_size: 8
+  num_workers: 4
+  lr: 0.0001
+  min_lr: 0.000001
+  warmup_steps: 1000
+  weight_decay: 0.0001
+  grad_clip_norm: 1.0
+  teacher_momentum_base: 0.996
+  teacher_momentum_final: 1.0
+  log_every_steps: 50
+
+visuals:
+  interval: 5
+  max_samples: 8
+  capture_on_start: true

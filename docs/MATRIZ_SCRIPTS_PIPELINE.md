@@ -17,6 +17,15 @@ Referência rápida do que cada script faz, com entradas e saídas.
 | `experiments/dino_v2/scripts/build_sample_list_from_subfolders.py` | Gerar lista JSON de amostras por pasta | `--root-dir`, `--n-per-folder` | `sample_list_*.json` | Ativo |
 | `experiments/dino_v2/scripts/cluster_embeddings_report.py` | Embeddings + cluster + HTML | `--images-dir` ou `--images-list-json` | `cluster_report.html`, `summary.json`, `cluster_rows.json` | Ativo |
 
+## SSL Periapical DINOv2 (Fase A)
+
+| Script | Objetivo | Entradas | Saídas | Status |
+|---|---|---|---|---|
+| `experiments/ssl_periapical_dinov2/scripts/train_ssl_dinov2.py` | Treino SSL teacher-student + multicrop | `--config` (+ overrides opcionais) | `summary.json`, `history.json`, checkpoints, `tb/`, `train_visuals/` | Ativo |
+| `experiments/ssl_periapical_dinov2/scripts/preview_multicrop_pipeline.py` | Preview visual de crops/augmentações | `--config`, `--num-samples`, `--output-dir` | painéis PNG por amostra | Ativo |
+| `experiments/ssl_periapical_dinov2/scripts/export_backbone_checkpoint.py` | Exportar backbone SSL para formato HF | `--checkpoint`, `--output-dir` | pasta HF exportada + `export_meta.json` | Ativo |
+| `experiments/ssl_periapical_dinov2/scripts/run_downstream_periapical_eval.py` | Rodar avaliação downstream E1/E2 | `--backbone-dir`, paths de benchmark | manifest e resumos de avaliação | Ativo |
+
 ## Periapical Classifier
 
 | Script | Objetivo | Entradas | Saídas | Status |
@@ -38,4 +47,3 @@ Referência rápida do que cada script faz, com entradas e saídas.
 - Para modelos já baixados: usar offline (`HF_HUB_OFFLINE=1`, `TRANSFORMERS_OFFLINE=1`, `--offline`).
 - Em jobs grandes, exigir logs de progresso e `summary.json` final.
 - Nunca salvar artefatos pesados no Git.
-
