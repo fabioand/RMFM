@@ -107,7 +107,32 @@ Latências medidas no mosaico Radiobot (1700 imagens, CUDA):
 - O ganho do `flip mirror` foi relevante para reduzir erros de lateralidade no experimento periapical.
 - O resultado Radiobot está muito alto; vale manter validação com splits alternativos e amostras externas para checar generalização.
 
-## 5) Decisão Atual Para O Primeiro SSL (v1)
+## 5) Periapical em escala (E2 com `best29_teacher`, 31k+)
+
+Run:
+- `/Users/fabioandrade/RMFM/experiments/periapical_dino_classifier/outputs/e2_processed32k_best29_teacher`
+
+Resumo:
+- num_samples: `31759`
+- num_classes: `14`
+- device: `cuda`
+- best_epoch: `18`
+- best_val_macro_f1: `0.9072`
+- test_accuracy: `0.9125`
+- test_macro_f1: `0.9105`
+
+Distribuição dos erros no teste:
+- total de erros: `417`
+- lateralidade (apenas): `10` (`2.40%`)
+- adjacência (apenas): `337` (`80.82%`)
+- lateralidade + adjacência: `0` (`0.00%`)
+- outros: `70` (`16.79%`)
+
+Artefatos:
+- histograma: `/Users/fabioandrade/RMFM/experiments/periapical_dino_classifier/outputs/e2_processed32k_best29_teacher/error_histogram/error_types_histogram_top.png`
+- CSV completo: `/Users/fabioandrade/RMFM/experiments/periapical_dino_classifier/outputs/e2_processed32k_best29_teacher/error_histogram/error_types_full.csv`
+
+## 6) Decisão Atual Para O Primeiro SSL (v1)
 
 Com base na classificação em massa de `73,411` imagens:
 - `Periapical`: `65,052`

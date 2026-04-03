@@ -15,6 +15,7 @@ import torch.nn.functional as F
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
+from tqdm.auto import tqdm
 try:
     from torch.utils.tensorboard import SummaryWriter
 except Exception:  # pragma: no cover
@@ -149,6 +150,7 @@ def _extract_split_features(
     device: str,
     augment_flip_mirror: bool = False,
     mirror_label_idx_map: dict[int, int] | None = None,
+    split_name: str = "split",
 ) -> tuple[np.ndarray, np.ndarray]:
     collate_fn = make_collate_fn(processor, shortest_edge=shortest_edge, crop_size=crop_size)
     loader = DataLoader(
@@ -162,7 +164,13 @@ def _extract_split_features(
 
     feats_list: list[np.ndarray] = []
     labels_list: list[np.ndarray] = []
-    for batch in loader:
+    progress = tqdm(
+        loader,
+        desc=f"Extraindo embeddings [{split_name}]",
+        unit="batch",
+        leave=False,
+    )
+    for batch in progress:
         pixel_values = batch["pixel_values"].to(device)
         labels = np.array(batch["labels"], dtype=np.int64)
         feats = backbone._extract_features(pixel_values).detach().cpu().numpy().astype(np.float32)
@@ -319,14 +327,17 @@ def run_training_cached(args: Namespace) -> None:
             int(args.shortest_edge), int(args.crop_size), device,
             augment_flip_mirror=use_flip_mirror,
             mirror_label_idx_map=mirror_label_idx_map,
+            split_name="train",
         )
         x_val, y_val = _extract_split_features(
             backbone_model, ds_val, processor, int(args.feature_batch_size), int(args.num_workers),
-            int(args.shortest_edge), int(args.crop_size), device
+            int(args.shortest_edge), int(args.crop_size), device,
+            split_name="val",
         )
         x_test, y_test = _extract_split_features(
             backbone_model, ds_test, processor, int(args.feature_batch_size), int(args.num_workers),
-            int(args.shortest_edge), int(args.crop_size), device
+            int(args.shortest_edge), int(args.crop_size), device,
+            split_name="test",
         )
 
         np.save(feature_paths["x_train"], x_train)
